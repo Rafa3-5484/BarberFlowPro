@@ -24,6 +24,7 @@ async function bootstrap() {
 
   // Serve frontend static files
   const frontendPaths = [
+    join(__dirname, '..', '..', 'out'),
     join(__dirname, '..', '..', 'frontend', 'out'),
     join(__dirname, '..', '..', 'frontend', '.next', 'standalone', 'frontend'),
   ];

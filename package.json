@@ -1,0 +1,23 @@
+{
+  "name": "barberflow-pro",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run start:dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build": "npm run build:backend && npm run build:frontend",
+    "start": "node backend/dist/main.js",
+    "start:dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "db:push": "cd backend && npx prisma db push",
+    "db:seed": "cd backend && npx ts-node src/prisma/seed.ts",
+    "db:studio": "cd backend && npx prisma studio",
+    "docker:build": "docker build -t barberflow-pro .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env barberflow-pro"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
